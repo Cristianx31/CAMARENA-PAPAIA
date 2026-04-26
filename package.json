@@ -2,10 +2,10 @@
   "name": "rojas-camarena-papaclick",
   "version": "1.0.0",
   "description": "Sistema de clasificación de variedades de papa usando IA - Arquitectura 4 capas",
-  "main": "server.js",
+  "main": "PMV1/app.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node PMV1/app.js",
+    "dev": "nodemon PMV1/app.js",
     "pmv1": "cd PMV1 && node app.js",
     "pmv1:dev": "cd PMV1 && nodemon app.js",
     "install:pmv1": "cd PMV1 && npm install",

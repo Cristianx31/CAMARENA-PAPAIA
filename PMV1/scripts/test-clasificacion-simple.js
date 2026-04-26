@@ -14,7 +14,7 @@ const Clasificacion = require('../modelo/Clasificacion');
 const VariedadPapa = require('../modelo/VariedadPapa');
 const Imagen = require('../modelo/Imagen');
 
-const MONGODB_URI = 'mongodb+srv://rolfi:321@cluster0.yczwuya.mongodb.net/PapasDB';
+const MONGODB_URI = process.env.MONGODB_URI || process.env.MONGODB_LOCAL || 'mongodb://localhost:27017/PapasDB';
 
 async function testClasificacionSimple() {
     try {

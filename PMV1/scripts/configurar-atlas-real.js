@@ -5,14 +5,14 @@ require('dotenv').config();
 async function probarConexionAtlas() {
     console.log('🔧 Probando conexión a MongoDB Atlas...');
     
-    // URI que vi en los logs (necesitas reemplazar con la contraseña correcta)
-    const atlasURI = 'mongodb+srv://iosmilrojas:TU_PASSWORD_AQUI@cluster0.yczwuya.mongodb.net/PapasDB?retryWrites=true&w=majority&appName=Cluster0';
+    // URI de ejemplo para tu propio cluster Atlas
+    const atlasURI = 'mongodb+srv://<usuario>:<contraseña>@<cluster>.mongodb.net/<nombreBaseDeDatos>?retryWrites=true&w=majority';
     
     try {
         console.log('🔗 Conectando a Atlas...');
-        console.log(`📍 Cluster: cluster0.yczwuya.mongodb.net`);
-        console.log(`📊 Base de datos: PapasDB`);
-        console.log(`👤 Usuario: iosmilrojas`);
+        console.log('📍 Cluster: <tu_cluster>.mongodb.net');
+        console.log('📊 Base de datos: <tu_base_de_datos>');
+        console.log('👤 Usuario: <tu_usuario>');
         
         const conn = await mongoose.connect(atlasURI, {
             serverSelectionTimeoutMS: 15000, // 15 segundos

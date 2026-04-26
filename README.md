@@ -70,7 +70,7 @@ npm install
 ```
 
 3. **Configurar variables de entorno**
-Crear archivo `.env` en la raíz del proyecto:
+Crear archivo `.env` en la raíz del proyecto (puedes copiar `.env.example`):
 ```env
 MONGODB_URI=your_mongodb_atlas_connection_string
 PORT=5000
@@ -79,7 +79,7 @@ NODE_ENV=production
 
 4. **Inicializar datos de prueba**
 ```bash
-node init-data.js
+cd PMV1 && node scripts/inicializar-datos.js
 ```
 
 5. **Ejecutar el servidor**
@@ -251,22 +251,20 @@ npm run lint       # Verificar código (próximamente)
 
 ```
 ROJAS-CAMARENA-PAPACLICK/
-├── src/                    # Código fuente Python
-│   ├── main.py            # Punto de entrada
-│   ├── train.py           # Entrenamiento del modelo
-│   ├── preprocessing.py   # Preprocesamiento de imágenes
-│   ├── validate.py        # Validación del modelo
-│   └── utils.py           # Utilidades
-├── PMV1/                  # Interfaz web
-│   ├── index.html         # Página principal
-│   ├── scrips.js         # Lógica del frontend
-│   ├── styles.css        # Estilos CSS
-│   └── web_model/        # Modelo TensorFlow.js
-├── data/                  # Datasets de entrenamiento
-├── uploads/               # Imágenes subidas por usuarios
-├── server.js             # Servidor Node.js principal
-├── init-data.js          # Inicialización de datos
-├── admin.js              # Panel administrativo
+├── data/                  # Datasets de entrenamiento y validación
+├── uploads/               # Archivos cargados por usuarios
+├── PMV1/                  # Aplicación web y backend real
+│   ├── app.js             # Servidor Express principal
+│   ├── basedatos/         # Conexión a MongoDB
+│   ├── control/           # Controladores de rutas
+│   ├── modelo/            # Modelos Mongoose
+│   ├── public/            # Recursos estáticos y uploads
+│   ├── routes/            # Definición de rutas
+│   ├── scripts/           # Scripts de configuración y prueba
+│   ├── vista/             # Plantillas EJS
+│   └── web_model/         # Modelo TensorFlow.js local
+├── package.json          # Dependencias y scripts del proyecto
+└── README.md             # Documentación
 ├── package.json          # Dependencias del proyecto
 └── README.md             # Documentación
 ```

@@ -99,9 +99,9 @@ async function configuracionCompleta() {
     
     console.log('📋 Estado actual:');
     console.log('   ✅ Credenciales configuradas en .env');
-    console.log('   ✅ Usuario: rolfi');
-    console.log('   ✅ Cluster: cluster0.yczwuya.mongodb.net');
-    console.log('   ✅ Base de datos: PapasDB\n');
+    console.log('   ✅ Usuario: <tu_usuario>');
+    console.log('   ✅ Cluster: <tu_cluster>.mongodb.net');
+    console.log('   ✅ Base de datos: <tu_base_de_datos>\n');
     
     // Probar conexión a Atlas
     const atlasDisponible = await probarAtlas();

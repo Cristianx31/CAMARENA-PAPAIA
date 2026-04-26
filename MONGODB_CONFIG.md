@@ -2,14 +2,14 @@
 # PAPACLICK - Proyecto de Clasificación de Papas
 
 ## Configuración MongoDB Atlas
-- **Cluster**: cluster0.yczwuya.mongodb.net
-- **Base de datos**: PapasDB
-- **Usuario**: rolfi
-- **Contraseña**: 321
+- **Cluster**: <tu_cluster>.mongodb.net
+- **Base de datos**: <tu_base_de_datos>
+- **Usuario**: <tu_usuario>
+- **Contraseña**: <tu_contraseña>
 
 ## String de conexión MongoDB Atlas:
 ```
-mongodb+srv://rolfi:321@cluster0.yczwuya.mongodb.net/PapasDB?retryWrites=true&w=majority&appName=Cluster0
+mongodb+srv://<tu_usuario>:<tu_contraseña>@<tu_cluster>.mongodb.net/<tu_base_de_datos>?retryWrites=true&w=majority
 ```
 
 ## Configuración MongoDB Compass (Local)
@@ -20,8 +20,11 @@ Si prefieres usar MongoDB localmente con Compass:
 3. Usar la conexión: `mongodb://localhost:27017/PapasDB`
 
 ## Colecciones creadas automáticamente:
-- **predicciones**: Almacena cada predicción con variedad, condición, probabilidad y timestamp
-- **estadisticas**: Almacena estadísticas agregadas por fecha
+- **usuarios**: Almacena usuarios del sistema
+- **variedades_papa**: Almacena las variedades de papa y sus atributos
+- **clasificaciones**: Almacena cada clasificación realizada
+- **imagenes**: Almacena metadatos de imágenes cargadas
+- **trazabilidad**: Almacena el historial de acciones y eventos
 
 ## Estructura de datos en predicciones:
 ```json
@@ -42,6 +45,9 @@ Si prefieres usar MongoDB localmente con Compass:
   "updatedAt": "2025-09-24T17:30:00.000Z"
 }
 ```
+
+## Importante
+Usa `.env` para definir `MONGODB_URI` y `MONGODB_LOCAL` en lugar de guardar credenciales en archivos.
 
 ## APIs disponibles:
 - POST `/api/prediccion` - Guardar nueva predicción

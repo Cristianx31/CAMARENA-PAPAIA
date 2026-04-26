@@ -13,8 +13,10 @@ async function configurarPassword(password) {
         
         // Reemplazar placeholder con contraseña real
         const nuevoContenido = contenido.replace(
-            /MONGODB_URI=mongodb\+srv:\/\/iosmilrojas:.*@/,
-            `MONGODB_URI=mongodb+srv://iosmilrojas:${password}@`
+            /MONGODB_URI=mongodb\+srv:\/\/[\w-]+:.*@/,
+            (match) => {
+                return match.replace(/:\/\/.*@/, `://${match.split('://')[1].split(':')[0}:${password}@`);
+            }
         );
         
         // Escribir archivo actualizado

@@ -1,7 +1,7 @@
 {
-  "name": "rojas-camarena-papaclick",
+  "name": "camarena-papaia",
   "version": "1.0.0",
-  "description": "Sistema de clasificación de variedades de papa usando IA - Arquitectura 4 capas",
+  "description": "Sistema inteligente de clasificación de variedades de papa usando IA con TensorFlow.js",
   "main": "PMV1/app.js",
   "scripts": {
     "start": "node PMV1/app.js",
@@ -25,7 +25,7 @@
     "inteligencia-artificial",
     "machine-learning"
   ],
-  "author": "Rojas Camarena",
+  "author": "Cristianx31",
   "license": "MIT",
   "dependencies": {
     "@tensorflow/tfjs": "^4.22.0",
@@ -62,10 +62,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IosmilRojas/ROJAS-CAMARENA-PAPANATIVA"
+    "url": "https://github.com/Cristianx31/CAMARENA-PAPAIA"
   },
   "bugs": {
-    "url": "https://github.com/IosmilRojas/ROJAS-CAMARENA-PAPANATIVA/issues"
+    "url": "https://github.com/Cristianx31/CAMARENA-PAPAIA/issues"
   },
-  "homepage": "https://github.com/IosmilRojas/ROJAS-CAMARENA-PAPANATIVA#readme"
+  "homepage": "https://github.com/Cristianx31/CAMARENA-PAPAIA#readme"
 }

@@ -60,8 +60,8 @@ graph TB
 
 1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/tu-usuario/ROJAS-CAMARENA-PAPACLICK.git
-cd ROJAS-CAMARENA-PAPACLICK
+git clone https://github.com/Cristianx31/CAMARENA-PAPAIA.git
+cd CAMARENA-PAPAIA
 ```
 
 2. **Instalar dependencias**
@@ -242,7 +242,7 @@ data/
 ```bash
 npm start          # Ejecutar servidor en producción
 npm run dev        # Ejecutar servidor en desarrollo
-npm run init-data  # Inicializar datos de prueba
+npm run init:data  # Inicializar datos de prueba
 npm test           # Ejecutar tests (próximamente)
 npm run lint       # Verificar código (próximamente)
 ```
@@ -250,7 +250,7 @@ npm run lint       # Verificar código (próximamente)
 ## 📝 Estructura del Proyecto
 
 ```
-ROJAS-CAMARENA-PAPACLICK/
+CAMARENA-PAPAIA/
 ├── data/                  # Datasets de entrenamiento y validación
 ├── uploads/               # Archivos cargados por usuarios
 ├── PMV1/                  # Aplicación web y backend real
@@ -263,10 +263,10 @@ ROJAS-CAMARENA-PAPACLICK/
 │   ├── scripts/           # Scripts de configuración y prueba
 │   ├── vista/             # Plantillas EJS
 │   └── web_model/         # Modelo TensorFlow.js local
+├── .env.example          # Variables de entorno de ejemplo
 ├── package.json          # Dependencias y scripts del proyecto
-└── README.md             # Documentación
-├── package.json          # Dependencias del proyecto
-└── README.md             # Documentación
+├── MONGODB_CONFIG.md     # Documentación de configuración MongoDB
+└── README.md             # Este archivo
 ```
 
 ## 🤝 Contribuir al Proyecto
@@ -302,7 +302,7 @@ ROJAS-CAMARENA-PAPACLICK/
 
 Si encuentras algún problema o tienes sugerencias:
 
-1. Revisa los [issues existentes](https://github.com/tu-usuario/ROJAS-CAMARENA-PAPACLICK/issues)
+1. Revisa los [issues existentes](https://github.com/Cristianx31/CAMARENA-PAPAIA/issues)
 2. Crea un nuevo issue con:
    - Descripción clara del problema
    - Pasos para reproducir
@@ -312,8 +312,8 @@ Si encuentras algún problema o tienes sugerencias:
 ## 📞 Soporte y Contacto
 
 - **Documentación**: Ver este README y código comentado
-- **Issues**: [GitHub Issues](https://github.com/tu-usuario/ROJAS-CAMARENA-PAPACLICK/issues)
-- **Discusiones**: [GitHub Discussions](https://github.com/tu-usuario/ROJAS-CAMARENA-PAPACLICK/discussions)
+- **Issues**: [GitHub Issues](https://github.com/Cristianx31/CAMARENA-PAPAIA/issues)
+- **Discusiones**: [GitHub Discussions](https://github.com/Cristianx31/CAMARENA-PAPAIA/discussions)
 
 ## 📄 Licencia
 
@@ -328,10 +328,10 @@ Este proyecto está bajo la Licencia MIT. Ver archivo [LICENSE](LICENSE) para m�
 
 ## 📊 Estadísticas del Repositorio
 
-![GitHub stars](https://img.shields.io/github/stars/tu-usuario/ROJAS-CAMARENA-PAPACLICK)
-![GitHub forks](https://img.shields.io/github/forks/tu-usuario/ROJAS-CAMARENA-PAPACLICK)
-![GitHub issues](https://img.shields.io/github/issues/tu-usuario/ROJAS-CAMARENA-PAPACLICK)
-![GitHub license](https://img.shields.io/github/license/tu-usuario/ROJAS-CAMARENA-PAPACLICK)
+![GitHub stars](https://img.shields.io/github/stars/Cristianx31/CAMARENA-PAPAIA)
+![GitHub forks](https://img.shields.io/github/forks/Cristianx31/CAMARENA-PAPAIA)
+![GitHub issues](https://img.shields.io/github/issues/Cristianx31/CAMARENA-PAPAIA)
+![GitHub license](https://img.shields.io/github/license/Cristianx31/CAMARENA-PAPAIA)
 
 ---
 

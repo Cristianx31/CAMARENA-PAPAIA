@@ -14,7 +14,7 @@ PAPACLICK es un sistema inteligente para la clasificación automatizada de varie
 ## 🎯 PMV1 - Producto Mínimo Viable
 
 ### Funcionalidades Principales
-- ✅ **Clasificación de Variedades**: Huayro, Peruanita, Amarilla
+- ✅ **Clasificación de Variedades**: Unica, Blanca, Amarilla
 - ✅ **Evaluación de Aptitud**: Apto/No Apto para consumo
 - ✅ **Interfaz Web Intuitiva**: Upload y análisis en tiempo real
 - ✅ **Base de Datos Completa**: Almacenamiento de resultados y métricas

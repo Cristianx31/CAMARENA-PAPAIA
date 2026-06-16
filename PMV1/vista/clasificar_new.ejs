@@ -186,8 +186,8 @@
                     <i class="fas fa-info-circle me-2"></i>
                     <strong>Variedades detectables:</strong> 
                     <span class="badge bg-warning text-dark me-1">Amarilla</span>
-                    <span class="badge bg-primary me-1">Huayro</span>
-                    <span class="badge bg-success">Peruanita</span>
+                    <span class="badge bg-primary me-1">Blanca</span>
+                    <span class="badge bg-success">Única</span>
                 </div>
             </div>
         </div>
@@ -371,12 +371,12 @@
                                 <small class="text-muted">Papa criolla tradicional</small>
                             </div>
                             <div class="d-flex align-items-center mb-2">
-                                <span class="badge bg-primary me-2">Huayro</span>
-                                <small class="text-muted">Variedad andina resistente</small>
+                                <span class="badge bg-primary me-2">Blanca</span>
+                                <small class="text-muted">Papa de pulpa blanca y textura suave</small>
                             </div>
                             <div class="d-flex align-items-center">
-                                <span class="badge bg-success me-2">Peruanita</span>
-                                <small class="text-muted">Papa nativa pequeña</small>
+                                <span class="badge bg-success me-2">Única</span>
+                                <small class="text-muted">Variedad autóctona de alto valor genético</small>
                             </div>
                         </div>
                         
@@ -591,10 +591,10 @@
             const variety = result.prediccion;
             
             // Get variety info
-            const varietyInfo = {
-                'amarilla': { color: 'warning', icon: '🟨', name: 'Amarilla' },
-                'huayro': { color: 'primary', icon: '🔵', name: 'Huayro' },
-                'peruanita': { color: 'success', icon: '🟢', name: 'Peruanita' }
+                const varietyInfo = {
+                    'amarilla': { color: 'warning', icon: '🟨', name: 'Amarilla' },
+                    'blanca': { color: 'primary', icon: '🔵', name: 'Blanca' },
+                    'unica': { color: 'success', icon: '🟢', name: 'Única' }
             };
             
             const info = varietyInfo[variety.toLowerCase()] || { color: 'secondary', icon: '⚪', name: variety };

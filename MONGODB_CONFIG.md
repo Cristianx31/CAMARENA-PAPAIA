@@ -30,7 +30,7 @@ Si prefieres usar MongoDB localmente con Compass:
 ```json
 {
   "_id": "ObjectId",
-  "variedad": "Huayro|Peruanita|Amarilla",
+  "variedad": "Amarilla|Blanca|Única",
   "condicion": "Apto|No Apto",
   "probabilidad": 0.95,
   "imagen": {

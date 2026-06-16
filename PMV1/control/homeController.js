@@ -5,7 +5,7 @@ class HomeController {
     static async mostrarInicio(req, res) {
         try {
             res.render('index', {
-                titulo: 'PapaIA - Clasificación Inteligente de Variedades de Papa',
+                titulo: 'PAPAIA - Clasificación Inteligente de Variedades de Papa',
                 usuario: req.session.usuario || null
             });
         } catch (error) {

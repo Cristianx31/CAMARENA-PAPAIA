@@ -2,21 +2,11 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// Conectar a MongoDB
-const connectDB = async () => {
-    try {
-        const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/PapasDB';
-        await mongoose.connect(mongoURI);
-        console.log('✅ Conectado a MongoDB');
-        return true;
-    } catch (error) {
-        console.error('❌ Error conectando a MongoDB:', error.message);
-        return false;
-    }
-};
+// Reutilizar la función de conexión centralizada (incluye fallback no-SRV y local)
+const connectDB = require('../basedatos/db');
 
 // Importar modelo
-const VariedadPapa = require('./modelo/VariedadPapa');
+const VariedadPapa = require('../modelo/VariedadPapa');
 
 // Datos de las variedades nativas del Perú
 const variedadesNativas = [
@@ -55,65 +45,65 @@ const variedadesNativas = [
         fechaRegistro: new Date()
     },
     {
-        nombreCientifico: 'Solanum tuberosum var. huayro',
-        nombreComun: 'huayro',
-        descripcion: 'Papa nativa andina de forma alargada y piel rojiza. Muy resistente a condiciones climáticas adversas y valorada por su alto contenido nutricional.',
+        nombreCientifico: 'Solanum tuberosum var. blanca',
+        nombreComun: 'blanca',
+        descripcion: 'Papa de pulpa blanca y textura suave, ideal para guisos y preparaciones tradicionales. Muy valorada por su sabor delicado y su versatilidad culinaria.',
         origen: {
             pais: 'Perú',
-            region: 'Andes del Sur',
-            altitud: '3200-4200 msnm'
+            region: 'Sierra',
+            altitud: '2000-3600 msnm'
         },
         caracteristicas: {
-            color: 'Rojizo con manchas moradas',
-            forma: 'Alargada y cilíndrica',
-            tamaño: 'Mediano a grande (80-120g)',
-            textura: 'Firme y consistente'
+            color: 'Blanco-crema',
+            forma: 'Redonda o ligeramente ovalada',
+            tamaño: 'Mediano (55-85g)',
+            textura: 'Suave y cremosa'
         },
         usosCulinarios: [
-            'Papa al horno',
-            'Papas nativas hervidas',
-            'Chuño (papa deshidratada)',
-            'Sopas andinas',
-            'Guisos de altura'
+            'Sopas',
+            'Guisos',
+            'Causa',
+            'Papas rellenas',
+            'Al horno'
         ],
         valorNutricional: {
-            carbohidratos: 18.5,
-            proteinas: 2.3,
-            vitaminas: ['Vitamina C', 'Antocianinas', 'Hierro', 'Zinc']
+            carbohidratos: 19.5,
+            proteinas: 2.2,
+            vitaminas: ['Vitamina C', 'Vitamina B6', 'Potasio', 'Magnesio']
         },
         temporadaCultivo: {
-            siembra: 'Septiembre - Noviembre',
-            cosecha: 'Marzo - Mayo'
+            siembra: 'Octubre - Enero',
+            cosecha: 'Abril - Julio'
         },
         activa: true,
         fechaRegistro: new Date()
     },
     {
-        nombreCientifico: 'Solanum tuberosum var. peruanita',
-        nombreComun: 'peruanita',
-        descripcion: 'Papa nativa pequeña de piel morada y pulpa amarilla. Considerada una joya de la biodiversidad peruana por su sabor único y propiedades antioxidantes.',
+        nombreCientifico: 'Solanum tuberosum var. unica',
+        nombreComun: 'unica',
+        descripcion: 'Variedad autóctona de alto valor genético, de forma compacta y sabor distintivo. Es apreciada por su calidad en platos tradicionales y su resistencia en cultivo.',
         origen: {
             pais: 'Perú',
-            region: 'Andes del Norte y Centro',
-            altitud: '2600-3600 msnm'
+            region: 'Sierra Central',
+            altitud: '2800-3800 msnm'
         },
         caracteristicas: {
-            color: 'Morado intenso con pulpa amarilla',
-            forma: 'Pequeña y redonda',
-            tamaño: 'Pequeño (30-50g)',
-            textura: 'Suave y mantecosa'
+            color: 'Piel rojiza o rosada',
+            forma: 'Redonda y compacta',
+            tamaño: 'Pequeño a mediano (40-60g)',
+            textura: 'Firme y sabrosa'
         },
         usosCulinarios: [
-            'Papa cocida entera',
-            'Ensaladas nativas',
+            'Papa sancochada',
+            'Ensaladas',
             'Anticuchos de papa',
-            'Platos gourmet',
-            'Conservas andinas'
+            'Guarniciones',
+            'Platos de celebración'
         ],
         valorNutricional: {
-            carbohidratos: 19.8,
-            proteinas: 2.1,
-            vitaminas: ['Vitamina C', 'Antocianinas', 'Carotenoides', 'Polifenoles']
+            carbohidratos: 18.9,
+            proteinas: 2.0,
+            vitaminas: ['Vitamina C', 'Potasio', 'Hierro', 'Fibras']
         },
         temporadaCultivo: {
             siembra: 'Octubre - Enero',
@@ -154,9 +144,9 @@ const main = async () => {
     try {
         console.log('🚀 Inicializando base de datos de variedades nativas...\n');
         
-        // Conectar a base de datos
-        const connected = await connectDB();
-        if (!connected) {
+        // Conectar a base de datos (connectDB devuelve la conexión o null)
+        const conn = await connectDB();
+        if (!conn) {
             process.exit(1);
         }
         
@@ -166,8 +156,8 @@ const main = async () => {
         console.log('\n🎉 Base de datos inicializada exitosamente!');
         console.log('📊 Variedades disponibles para clasificación:');
         console.log('   • Amarilla (Papa criolla tradicional)');
-        console.log('   • Huayro (Papa andina resistente)');
-        console.log('   • Peruanita (Papa morada pequeña)');
+        console.log('   • Blanca (Papa de pulpa blanca y textura suave)');
+        console.log('   • Única (Variedad autóctona de alto valor genético)');
         
     } catch (error) {
         console.error('\n💥 Error en la inicialización:', error.message);

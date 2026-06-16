@@ -6,7 +6,7 @@ const fs = require('fs').promises;
 class ModeloIA {
     constructor() {
         this.modelo = null;
-        this.clases = ['amarilla', 'huayro', 'peruanita']; // Variedades de papa
+        this.clases = ['amarilla', 'blanca', 'unica']; // Variedades de papa
         this.inputShape = [224, 224, 3]; // Dimensiones de entrada MobileNetV2
         this.modeloPath = path.join(__dirname, '../web_model/model.json');
         this.cargado = false;

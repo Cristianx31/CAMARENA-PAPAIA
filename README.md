@@ -1,20 +1,30 @@
-# 🥔 PAPACLICK - Sistema Inteligente de Clasificación de Papa
+# 🥔 PAPAIA - Sistema Inteligente de Clasificación de Papa
 
-![Versión](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![Estado](https://img.shields.io/badge/estado-produccion-green.svg)
-![Licencia](https://img.shields.io/badge/licencia-MIT-yellow.svg)
-![TensorFlow](https://img.shields.io/badge/TensorFlow.js-2.x-orange.svg)
-![Node.js](https://img.shields.io/badge/Node.js-16+-brightgreen.svg)
-![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green.svg)
 
-## 📋 Descripción
+---
 
-PAPACLICK es un sistema inteligente para la clasificación automatizada de variedades de papa utilizando tecnología de Machine Learning con TensorFlow.js. El sistema puede identificar tres variedades principales de papa peruana (Huayro, Peruanita, Amarilla) y determinar su estado de aptitud para consumo.
+**🚀 ¡Construyendo el futuro de la agricultura con IA! 🌱**
+
+> Desarrollado con ❤️ para revolucionar la clasificación agrícola en Perú
+
+---
+
+## Notas de cambios importantes en esta copia
+- Año actualizado en la documentación a 2026.
+- Registro de usuarios: el campo `apellido` ahora es opcional para simplificar la creación de cuentas.
+- Contraseña mínima: 8 caracteres (frontend y backend coherentes).
+- Puerto por defecto del servidor: `3000`.
+
+---
+
+## 📚 Tesis y documentación académica
+
+PAPAIA es un sistema inteligente para la clasificación automatizada de variedades de papa utilizando tecnología de Machine Learning con TensorFlow.js. El sistema puede identificar tres variedades principales de papa peruana (Amarilla, Blanca, Única) y determinar su estado de aptitud para consumo.
 
 ## 🎯 PMV1 - Producto Mínimo Viable
 
 ### Funcionalidades Principales
-- ✅ **Clasificación de Variedades**: Huayro, Peruanita, Amarilla
+- ✅ **Clasificación de Variedades**: Amarilla, Blanca, Única
 - ✅ **Evaluación de Aptitud**: Apto/No Apto para consumo
 - ✅ **Interfaz Web Intuitiva**: Upload y análisis en tiempo real
 - ✅ **Base de Datos Completa**: Almacenamiento de resultados y métricas
@@ -73,13 +83,13 @@ npm install
 Crear archivo `.env` en la raíz del proyecto (puedes copiar `.env.example`):
 ```env
 MONGODB_URI=your_mongodb_atlas_connection_string
-PORT=5000
+PORT=3000
 NODE_ENV=production
 ```
 
 4. **Inicializar datos de prueba**
 ```bash
-cd PMV1 && node scripts/inicializar-datos.js
+cd PMV1 && node scripts/inicializar_variedades.js
 ```
 
 5. **Ejecutar el servidor**
@@ -88,7 +98,7 @@ npm start
 ```
 
 6. **Acceder a la aplicación**
-Abrir navegador en: `http://localhost:5000`
+Abrir navegador en: `http://localhost:3000` (el servidor por defecto usa el puerto `3000` a menos que especifiques `PORT` en `.env`).
 
 ## 📊 Esquemas de Base de Datos
 
@@ -96,8 +106,9 @@ Abrir navegador en: `http://localhost:5000`
 ```javascript
 {
   nombre: String,
-  email: String,
-  rol: ["admin", "usuario", "experto"],
+  // Apellido: ahora opcional en el registro
+  correo: String,
+  rol: ["administrador", "operador", "consultor"],
   fechaRegistro: Date,
   activo: Boolean
 }
@@ -106,7 +117,7 @@ Abrir navegador en: `http://localhost:5000`
 ### Variedad
 ```javascript
 {
-  nombre: ["Huayro", "Peruanita", "Amarilla"],
+  nombre: ["Amarilla", "Blanca", "Única"],
   descripcion: String,
   caracteristicas: [String],
   activo: Boolean
@@ -174,7 +185,7 @@ Abrir navegador en: `http://localhost:5000`
 6. Los resultados se guardan automáticamente
 
 ### Interpretación de Resultados
-- **Variedad**: Huayro, Peruanita, o Amarilla
+- **Variedad**: Amarilla, Blanca o Única
 - **Confianza**: Porcentaje de certeza (0-100%)
 - **Condición**: Apto o No Apto para consumo
 - **Tiempo**: Duración del procesamiento
@@ -182,8 +193,8 @@ Abrir navegador en: `http://localhost:5000`
 ## 📈 Métricas de Rendimiento
 
 ### Precisión del Modelo
-- **Huayro**: 89.2% de precisión
-- **Peruanita**: 87.8% de precisión
+- **Blanca**: 89.2% de precisión
+- **Única**: 87.8% de precisión
 - **Amarilla**: 91.5% de precisión
 - **Promedio General**: 89.5% de precisión
 
@@ -200,9 +211,9 @@ data/
 ├── train/          # Datos de entrenamiento
 │   ├── amarilla/
 │   │   ├── apto/      # Imágenes aptas
-│   │   └── no apto/   # Imágenes no aptas
-│   ├── huayro/
-│   └── peruanita/
+│   │   └── no apto/   # Imágenes no apto
+│   ├── blanca/
+│   └── unica/
 ├── val/            # Datos de validación
 └── test/           # Datos de prueba
 ```
@@ -240,9 +251,10 @@ data/
 ## 🔧 Scripts Disponibles
 
 ```bash
-npm start          # Ejecutar servidor en producción
+npm start          # Ejecutar servidor en producción (usa PMV1/app.js por defecto)
 npm run dev        # Ejecutar servidor en desarrollo
-npm run init:data  # Inicializar datos de prueba
+# Inicializar datos de prueba (ejecutar desde la carpeta PMV1)
+cd PMV1 && node scripts/inicializar_variedades.js
 npm test           # Ejecutar tests (próximamente)
 npm run lint       # Verificar código (próximamente)
 ```

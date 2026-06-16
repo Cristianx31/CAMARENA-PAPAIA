@@ -35,12 +35,12 @@ async function crearClasificacionesPrueba() {
                 condicion: 'apto'
             },
             {
-                variedad: 'huayro', 
+                variedad: 'blanca',
                 confianza: 0.65,
                 condicion: 'no apto'
             },
             {
-                variedad: 'peruanita',
+                variedad: 'unica',
                 confianza: 0.88,
                 condicion: 'apto'
             },

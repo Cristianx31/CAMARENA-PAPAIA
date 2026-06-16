@@ -185,19 +185,37 @@ async function handleFormSubmit(event) {
     showLoading();
     
     try {
+        // Incluir credenciales para enviar la cookie de sesión al backend
         const response = await fetch('/clasificacion/procesar', {
             method: 'POST',
-            body: formData
+            body: formData,
+            credentials: 'same-origin'
         });
-        
-        const result = await response.json();
-        
+
+        // Si el servidor redirige (por ejemplo a /login) o devuelve 401, redirigir al usuario
+        if (response.redirected || response.status === 401) {
+            window.location.href = '/login';
+            return;
+        }
+
+        // Asegurar que la respuesta sea JSON antes de parsear
+        const contentType = response.headers.get('content-type') || '';
+        let result;
+        if (contentType.includes('application/json')) {
+            result = await response.json();
+        } else {
+            const text = await response.text();
+            console.error('Respuesta inesperada del servidor (no JSON):', text);
+            showError('Respuesta inesperada del servidor. Intenta iniciar sesión y volver a intentar.');
+            return;
+        }
+
         if (response.ok && result.exito) {
             showResult(result.resultado);
         } else {
             showError(result.error || 'Error procesando imagen');
         }
-        
+
     } catch (error) {
         console.error('Error:', error);
         showError('Error de conexión. Intenta nuevamente.');

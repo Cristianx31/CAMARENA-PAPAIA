@@ -39,59 +39,59 @@ const variedadesIniciales = [
         activa: true
     },
     {
-        nombreCientifico: 'Solanum tuberosum var. huayro',
-        nombreComun: 'huayro',
-        descripcion: 'Variedad andina resistente y de gran valor nutritivo. Conocida por su piel rojiza y pulpa amarilla, es muy apreciada por su sabor característico y versatilidad culinaria.',
+        nombreCientifico: 'Solanum tuberosum var. blanca',
+        nombreComun: 'blanca',
+        descripcion: 'Variedad de pulpa blanca y textura suave, recomendada para guisos y preparaciones tradicionales. Muy apreciada por su sabor equilibrado.',
         origen: {
             pais: 'Perú',
-            region: 'Cusco, Apurímac, Huancavelica',
-            altitud: '3200-4200 msnm'
+            region: 'Sierra Central y Norte',
+            altitud: '2000-3600 msnm'
         },
         caracteristicas: {
-            color: 'Piel rojiza, pulpa amarilla',
-            forma: 'Alargada u ovalada',
-            tamaño: 'Mediano a grande (6-10 cm)',
-            textura: 'Semi-harinosa, consistente'
+            color: 'Blanco-crema',
+            forma: 'Redonda o ligeramente ovalada',
+            tamaño: 'Mediano (5-8 cm)',
+            textura: 'Suave y cremosa'
         },
         usosCulinarios: [
-            'Papa sancochada',
-            'Papas rellenas',
-            'Estofados andinos',
-            'Chuño (papa deshidratada)',
-            'Sopas tradicionales'
+            'Sopas',
+            'Guisos',
+            'Papa rellena',
+            'Causa',
+            'Platos horneados'
         ],
         valorNutricional: {
-            carbohidratos: 18.5,
-            proteinas: 2.3,
-            vitaminas: ['Vitamina C', 'Antioxidantes', 'Hierro', 'Zinc']
+            carbohidratos: 19.5,
+            proteinas: 2.2,
+            vitaminas: ['Vitamina C', 'Vitamina B6', 'Potasio', 'Magnesio']
         },
         temporadaCultivo: {
-            siembra: 'Septiembre - Noviembre',
-            cosecha: 'Marzo - Mayo'
+            siembra: 'Octubre - Diciembre',
+            cosecha: 'Abril - Junio'
         },
         activa: true
     },
     {
-        nombreCientifico: 'Solanum tuberosum var. peruanita',
-        nombreComun: 'peruanita',
-        descripcion: 'Papa nativa pequeña de gran importancia cultural y gastronómica en el Perú. Se caracteriza por su tamaño compacto y su sabor intenso, ideal para preparaciones tradicionales.',
+        nombreCientifico: 'Solanum tuberosum var. unica',
+        nombreComun: 'unica',
+        descripcion: 'Variedad autóctona de alto valor genético, con pulpa firme y sabor distintivo. Se usa en platos tradicionales de la región por su carácter único.',
         origen: {
             pais: 'Perú',
             region: 'Junín, Huánuco, Pasco',
-            altitud: '3000-3800 msnm'
+            altitud: '2800-3800 msnm'
         },
         caracteristicas: {
-            color: 'Piel morada o rojiza, pulpa amarilla',
-            forma: 'Redonda pequeña',
+            color: 'Piel rojiza o rosada',
+            forma: 'Redonda y compacta',
             tamaño: 'Pequeño (3-5 cm)',
-            textura: 'Compacta y sabrosa'
+            textura: 'Firme y sabrosa'
         },
         usosCulinarios: [
-            'Papa runa (con cáscara)',
+            'Papa sancochada',
+            'Ensaladas',
             'Anticuchos de papa',
-            'Ensaladas andinas',
-            'Guarniciones tradicionales',
-            'Papas nativas al horno'
+            'Guarniciones',
+            'Platos nativos'
         ],
         valorNutricional: {
             carbohidratos: 19.8,

@@ -1,4 +1,4 @@
-// Script para inicializar datos básicos en MongoDB Atlas
+﻿// Script para inicializar datos básicos en MongoDB Atlas
 const mongoose = require('mongoose');
 require('dotenv').config({ path: '../.env' });
 
@@ -54,30 +54,30 @@ const variedadesIniciales = [
         activo: true
     },
     {
-        nombreComun: 'Huayro',
-        nombreCientifico: 'Solanum tuberosum var. huayro',
-        descripcion: 'Papa nativa de la sierra peruana, de piel morada y pulpa blanca. Resistente y nutritiva.',
+        nombreComun: 'Blanca',
+        nombreCientifico: 'Solanum tuberosum var. blanca',
+        descripcion: 'Papa nativa de pulpa blanca y textura suave. Ideal para preparación en guisos y potajes.',
         caracteristicas: {
             fisicas: [
-                'Piel de color morado intenso',
-                'Pulpa blanca o crema',
-                'Forma alargada',
-                'Ojos profundos'
+                'Piel blanca o crema',
+                'Pulpa blanca suave',
+                'Forma redonda o ligeramente ovalada',
+                'Tamaño mediano'
             ],
-            culinarias: ['Textura harinosa', 'Sabor intenso', 'Alto valor nutricional']
+            culinarias: ['Textura cremosa', 'Sabor suave', 'Absorbe bien condimentos']
         },
         usosCulinarios: ['Sopas', 'Guisos', 'Papa rellena', 'Causa'],
         origen: {
             pais: 'Perú',
             region: 'Sierra',
-            altitud: '3000-4000 msnm'
+            altitud: '2000-3600 msnm'
         },
         activo: true
     },
     {
-        nombreComun: 'Peruanita',
-        nombreCientifico: 'Solanum tuberosum var. peruanita',
-        descripcion: 'Variedad criolla pequeña, muy sabrosa y con alto contenido nutricional.',
+        nombreComun: 'Única',
+        nombreCientifico: 'Solanum tuberosum var. unica',
+        descripcion: 'Variedad nativa única del distrito de Acolla con características morfológicas distintivas.',
         caracteristicas: {
             fisicas: [
                 'Tamaño pequeño',
@@ -100,68 +100,68 @@ const variedadesIniciales = [
 async function inicializarDatos() {
     try {
         console.log('🥔 Inicializando datos en MongoDB Atlas...');
-        
+
         // Conectar a la base de datos
         const mongoURI = process.env.MONGODB_URI || process.env.MONGODB_LOCAL;
-        
+
         if (!mongoURI) {
             throw new Error('No se encontró URI de MongoDB en variables de entorno');
         }
-        
+
         await mongoose.connect(mongoURI);
         console.log('✅ Conectado a MongoDB');
-        
+
         // Limpiar datos existentes (opcional - comentar si no quieres limpiar)
         console.log('🧹 Limpiando datos existentes...');
-        
+
         // Eliminar índices únicos problemáticos si existen
         try {
-            await Usuario.collection.dropIndex("idUsuario_1");
+            await Usuario.collection.dropIndex('idUsuario_1');
         } catch (e) {
             // Ignorar si el índice no existe
         }
-        
+
         try {
-            await VariedadPapa.collection.dropIndex("idVariedad_1");
+            await VariedadPapa.collection.dropIndex('idVariedad_1');
         } catch (e) {
             // Ignorar si el índice no existe
         }
-        
+
         await Usuario.deleteMany({});
         await VariedadPapa.deleteMany({});
-        
+
         // Insertar usuarios iniciales
         console.log('👥 Creando usuarios iniciales...');
         const usuariosCreados = await Usuario.insertMany(usuariosIniciales);
         console.log(`✅ ${usuariosCreados.length} usuarios creados`);
-        
+
         // Insertar variedades de papa iniciales
         console.log('🥔 Creando variedades de papa...');
         const variedadesCreadas = await VariedadPapa.insertMany(variedadesIniciales);
         console.log(`✅ ${variedadesCreadas.length} variedades creadas`);
-        
+
         console.log('');
         console.log('🎉 DATOS INICIALES CREADOS EXITOSAMENTE!');
         console.log('');
-        console.log('👥 USUARIOS CREADOS:');
+        console.log('�� USUARIOS CREADOS:');
         usuariosCreados.forEach(user => {
             console.log(`   📧 ${user.correo} (${user.rol})`);
         });
-        
+
         console.log('');
         console.log('🥔 VARIEDADES CREADAS:');
         variedadesCreadas.forEach(variedad => {
             console.log(`   🌱 ${variedad.nombreComun} - ${variedad.nombreCientifico}`);
         });
-        
+
         console.log('');
         console.log('🚀 Credenciales de acceso:');
         console.log('   Admin: admin@papaclick.com / admin123');
         console.log('   Demo:  demo@papaclick.com / demo123');
-        
+
     } catch (error) {
         console.error('❌ Error inicializando datos:', error.message);
-        
+
         if (error.message.includes('ENOTFOUND')) {
             console.log('');
             console.log('💡 Sugerencias:');
@@ -169,7 +169,7 @@ async function inicializarDatos() {
             console.log('2. Ejecuta: npm run config:atlas');
             console.log('3. Asegúrate de tener conexión a internet');
         }
-        
+
     } finally {
         await mongoose.connection.close();
         console.log('');
@@ -178,8 +178,4 @@ async function inicializarDatos() {
 }
 
 // Ejecutar inicialización
-if (require.main === module) {
-    inicializarDatos();
-}
-
-module.exports = { inicializarDatos };
+inicializarDatos();

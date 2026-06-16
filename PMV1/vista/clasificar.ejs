@@ -186,8 +186,8 @@
                     <i class="fas fa-info-circle me-2"></i>
                     <strong>Variedades detectables:</strong> 
                     <span class="badge bg-warning text-dark me-1">Amarilla</span>
-                    <span class="badge bg-primary me-1">Huayro</span>
-                    <span class="badge bg-success">Peruanita</span>
+                    <span class="badge bg-primary me-1">Blanca</span>
+                    <span class="badge bg-success">Única</span>
                 </div>
             </div>
         </div>
@@ -367,16 +367,16 @@
                         
                         <div class="variety-info mb-3">
                             <div class="d-flex align-items-center mb-2">
-                                <span class="badge bg-warning text-dark me-2">Amarilla</span>
-                                <small class="text-muted">Papa criolla tradicional</small>
+                                    <span class="badge bg-warning text-dark me-2">Amarilla</span>
+                                    <small class="text-muted">Papa criolla tradicional</small>
                             </div>
                             <div class="d-flex align-items-center mb-2">
-                                <span class="badge bg-primary me-2">Huayro</span>
-                                <small class="text-muted">Variedad andina resistente</small>
+                                    <span class="badge bg-primary me-2">Blanca</span>
+                                    <small class="text-muted">Papa de pulpa blanca y textura suave</small>
                             </div>
                             <div class="d-flex align-items-center">
-                                <span class="badge bg-success me-2">Peruanita</span>
-                                <small class="text-muted">Papa nativa pequeña</small>
+                                    <span class="badge bg-success me-2">Única</span>
+                                    <small class="text-muted">Variedad autóctona de alto valor genético</small>
                             </div>
                         </div>
                         
@@ -401,7 +401,7 @@
         let currentImageData = null;
         let modeloTensorFlow = null;
         let modeloCargado = false;
-        const CLASES = ['amarilla', 'huayro', 'peruanita'];
+        const CLASES = ['amarilla', 'blanca', 'unica'];
         const MODEL_URL = '/web_model/model.json';
         
         // Cargar modelo TensorFlow.js en el frontend
@@ -740,8 +740,8 @@
             // Get variety info
             const varietyInfo = {
                 'amarilla': { color: 'warning', icon: '🟨', name: 'Amarilla', desc: 'Papa criolla tradicional' },
-                'huayro': { color: 'primary', icon: '🔵', name: 'Huayro', desc: 'Variedad andina resistente' },
-                'peruanita': { color: 'success', icon: '🟢', name: 'Peruanita', desc: 'Papa nativa pequeña' }
+                'blanca': { color: 'primary', icon: '🔵', name: 'Blanca', desc: 'Papa de pulpa blanca y textura suave' },
+                'unica': { color: 'success', icon: '🟢', name: 'Única', desc: 'Variedad autóctona de alto valor genético' }
             };
             
             const info = varietyInfo[variety.toLowerCase()] || { color: 'secondary', icon: '⚪', name: variety, desc: 'Variedad desconocida' };

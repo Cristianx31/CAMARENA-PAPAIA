@@ -48,7 +48,7 @@ const usuarioSchema = new mongoose.Schema({
     contraseña: {
         type: String,
         required: true,
-        minlength: 6
+        minlength: 8
     },
     // URL de avatar/foto de perfil
     avatarUrl: {

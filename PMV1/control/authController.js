@@ -165,11 +165,11 @@ class AuthController {
         try {
             const { nombre, apellido, correo, contraseña, confirmarContraseña, telefono, dni, direccion, avatarUrl, genero, fechaNacimiento, departamento, provincia, distrito } = req.body;
             
-            // Validar datos de entrada
-            if (!nombre || !apellido || !correo || !contraseña || !confirmarContraseña) {
+            // Validar datos de entrada (apellido ahora opcional)
+            if (!nombre || !correo || !contraseña || !confirmarContraseña) {
                 return res.render('login', {
                     titulo: 'Iniciar Sesión - Clasificador de Papas',
-                    error: 'Todos los campos obligatorios son requeridos (nombre, apellido, correo, contraseña)'
+                    error: 'Todos los campos obligatorios son requeridos (nombre, correo, contraseña)'
                 });
             }
             
@@ -213,7 +213,7 @@ class AuthController {
             // Crear nuevo usuario
             const nuevoUsuario = new Usuario({
                 nombre: nombre.trim(),
-                apellido: apellido.trim(),
+                apellido: apellido ? apellido.trim() : undefined,
                 correo: correo.toLowerCase().trim(),
                 contraseña: contraseña,
                 telefono: telefono?.trim() || null,

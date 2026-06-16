@@ -9,7 +9,7 @@ class ModeloIA {
     constructor() {
         this.modelo = null;
         this.cargado = false;
-        this.clases = ['amarilla', 'huayro', 'peruanita'];
+        this.clases = ['amarilla', 'blanca', 'unica'];
         this.inputShape = [224, 224, 3]; // Forma de entrada esperada
         this.rutaModelo = path.join(__dirname, '../web_model/model.json');
     }

@@ -8,7 +8,7 @@ class ModeloIA {
     constructor() {
         this.modelo = null;
         this.cargado = false;
-        this.clases = ['amarilla', 'huayro', 'peruanita'];
+        this.clases = ['amarilla', 'blanca', 'unica'];
         this.inputShape = [224, 224, 3]; // Forma de entrada esperada
         this.rutaModelo = path.join(__dirname, '../web_model/model.json');
     }
@@ -52,19 +52,19 @@ class ModeloIA {
                     // Ajustar probabilidades basadas en pistas del nombre
                     if (nombreArchivo.includes('amarilla') || nombreArchivo.includes('yellow')) {
                         predicciones = [0.85, 0.08, 0.07]; // Favor a amarilla
-                    } else if (nombreArchivo.includes('huayro') || nombreArchivo.includes('red')) {
-                        predicciones = [0.07, 0.86, 0.07]; // Favor a huayro
-                    } else if (nombreArchivo.includes('peruanita') || nombreArchivo.includes('small')) {
-                        predicciones = [0.06, 0.07, 0.87]; // Favor a peruanita
+                    } else if (nombreArchivo.includes('blanca') || nombreArchivo.includes('white')) {
+                        predicciones = [0.07, 0.86, 0.07]; // Favor a blanca
+                    } else if (nombreArchivo.includes('unica') || nombreArchivo.includes('unique')) {
+                        predicciones = [0.06, 0.07, 0.87]; // Favor a unica
                     } else {
                         // Simulación más realista con variabilidad
                         const base = Math.random();
                         if (base < 0.4) {
                             predicciones = [0.7 + Math.random() * 0.2, 0.15, 0.15]; // Amarilla dominante
                         } else if (base < 0.7) {
-                            predicciones = [0.15, 0.7 + Math.random() * 0.2, 0.15]; // Huayro dominante
+                            predicciones = [0.15, 0.7 + Math.random() * 0.2, 0.15]; // Blanca dominante
                         } else {
-                            predicciones = [0.15, 0.15, 0.7 + Math.random() * 0.2]; // Peruanita dominante
+                            predicciones = [0.15, 0.15, 0.7 + Math.random() * 0.2]; // Unica dominante
                         }
                     }
                 }

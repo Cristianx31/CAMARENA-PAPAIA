@@ -1,12 +1,4 @@
 # 🥔 PAPAIA - Sistema Inteligente de Clasificación de Papa
-
-
----
-
-**🚀 ¡Construyendo el futuro de la agricultura con IA! 🌱**
-
-> Desarrollado con ❤️ para revolucionar la clasificación agrícola en Perú
-
 ---
 
 ## Notas de cambios importantes en esta copia

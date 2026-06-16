@@ -24,7 +24,7 @@ PAPAIA es un sistema inteligente para la clasificación automatizada de variedad
 ## 🎯 PMV1 - Producto Mínimo Viable
 
 ### Funcionalidades Principales
-- ✅ **Clasificación de Variedades**: Amarilla, Blanca, Única
+- ✅ **Clasificación de Variedades**: Huayro, Peruanita, Amarilla
 - ✅ **Evaluación de Aptitud**: Apto/No Apto para consumo
 - ✅ **Interfaz Web Intuitiva**: Upload y análisis en tiempo real
 - ✅ **Base de Datos Completa**: Almacenamiento de resultados y métricas

@@ -8,6 +8,26 @@ const Trazabilidad = require('../modelo/Trazabilidad');
 const modeloIA = require('../modelo/ia_model');
 
 class ClasificacionController {
+
+    // Helper: escapar regex para búsquedas seguras
+    static _escapeRegex(text) {
+        return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    // Helper: buscar variedad por nombreCommon insensible a mayúsculas
+    static async _buscarVariedadPorNombre(nombre) {
+        if (!nombre) return null;
+        const nombreTrim = nombre.toString().trim();
+        try {
+            return await VariedadPapa.findOne({
+                nombreComun: { $regex: '^' + ClasificacionController._escapeRegex(nombreTrim) + '$', $options: 'i' }
+            });
+        } catch (err) {
+            // En caso de error de consulta, devolver null para manejo superior
+            console.error('Error buscando variedad por nombre:', err);
+            return null;
+        }
+    }
     
     // Mostrar página de clasificación
     static async mostrarClasificar(req, res) {
@@ -106,10 +126,8 @@ class ClasificacionController {
             // Realizar predicción con IA
             const prediccion = await modeloIA.predecir(rutaImagenTemporal);
             
-            // Buscar variedad predicha en BD
-            const variedadEncontrada = await VariedadPapa.findOne({ 
-                nombreComun: prediccion.variedadPredicha 
-            });
+            // Buscar variedad predicha en BD (búsqueda insensible a mayúsculas)
+            const variedadEncontrada = await ClasificacionController._buscarVariedadPorNombre(prediccion.variedadPredicha);
             
             if (!variedadEncontrada) {
                 throw new Error(`Variedad ${prediccion.variedadPredicha} no encontrada en base de datos`);
@@ -128,14 +146,12 @@ class ClasificacionController {
                 condicion: condicion,
                 prediccionesAlternativas: await Promise.all(
                     prediccion.todasPredicciones.slice(1, 3).map(async (pred) => {
-                        const variedad = await VariedadPapa.findOne({ 
-                            nombreComun: pred.variedad 
-                        });
-                        return variedad ? {
-                            variedad: variedad._id,
-                            confianza: pred.confianza
-                        } : null;
-                    })
+                            const variedad = await ClasificacionController._buscarVariedadPorNombre(pred.variedad);
+                            return variedad ? {
+                                variedad: variedad._id,
+                                confianza: pred.confianza
+                            } : null;
+                        })
                 ).then(results => results.filter(Boolean)),
                 tiempoProcesamientoMs: prediccion.tiempoProcesamientoMs,
                 metadatosIA: prediccion.metadatos
